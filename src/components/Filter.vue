@@ -20,9 +20,7 @@
 		},
 
 		methods: {
-			// sendInputValue() {
-			// 	this.$emit('inputValue',)
-			// }
+
 		},
 	}
 
