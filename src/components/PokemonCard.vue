@@ -1,12 +1,11 @@
 <template>
-	<div class="pokemon-card">
+	<div class="pokemon-card" v-bind:id="id">
 		<img v-bind:src="src">
 		<div class="pokemon-information">
 			<p>{{pokemon}}</p>
-			<p>#1</p>
+			<p>#{{id}}</p>
 		</div>
 	</div>
-	
 </template>
 
 <script>
@@ -22,7 +21,7 @@
 					return {
 						url: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
 					}
-				},
+				}
 		}
 </script>
 
@@ -36,6 +35,7 @@
 		flex-direction: column;
 		height: 167px;
 		justify-content: space-between;
+		min-width: 268px;
 		padding: 13px;
 		width: 268px;
 		img {
@@ -51,6 +51,5 @@
 				margin: 0;
 			}
 		}
-	}
-	
+	}	
 </style>

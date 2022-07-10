@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 	export default {
 		name: 'Filter',
 		expose: ['searchPokemons'],
@@ -19,17 +18,17 @@
 			}
 		}
 	}
-
 </script>
 
 <style lang="scss" scoped>
 	.filter {
-		// display: flex;
+		display: flex;
 		input {
 			background: none;
 			border: none;
 			border-bottom: 1px solid #b9b9b9;
 			height: 60px;
+			min-width: 283px;
 			outline: none;
 			width: 100%;
 		}

@@ -4,8 +4,8 @@
 		<div class="pokemon-card-container">
 			<PokemonCard class="card" v-for="pokemon of pokemonsFiltred" 
       :pokemon="pokemon.name" 
-      :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonId(pokemon)}.png`
-      "/>
+      :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonId(pokemon)}.png`"
+      :id="`${getPokemonId(pokemon)}`"/>
 		</div>
 	</div>
 </template>
@@ -13,7 +13,7 @@
 <script>
 import { defineComponent } from 'vue';
 import PokemonCard from '@/components/PokemonCard.vue';
-import Filter from '@/components/Filter.vue'; // @ is an alias to /src
+import Filter from '@/components/Filter.vue';
 
 const URL = 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0';
 
@@ -73,6 +73,7 @@ mounted() {
 			flex-direction: row;
 			flex-wrap: wrap;
       justify-content: center;
+      min-width: 283px;
 			.card {
         margin: 0 8px 16px 8px;
       }
