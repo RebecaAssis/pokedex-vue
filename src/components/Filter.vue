@@ -17,18 +17,14 @@
 			return {
 				searchPokemons: ''
 			}
-		},
-
-		methods: {
-
-		},
+		}
 	}
-	
+
 </script>
 
 <style lang="scss" scoped>
 	.filter {
-		display: flex;
+		// display: flex;
 		input {
 			background: none;
 			border: none;

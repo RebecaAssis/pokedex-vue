@@ -2,7 +2,10 @@
 	<div class="view-container">
 		<Filter :placeholder="'Search'" id="filter" @input-event="(inputValue) => filterPokemons(inputValue)" />
 		<div class="pokemon-card-container">
-			<PokemonCard v-for="pokemon of pokemonsFiltred" :pokemon="pokemon.name" />
+			<PokemonCard class="card" v-for="pokemon of pokemonsFiltred" 
+      :pokemon="pokemon.name" 
+      :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonId(pokemon)}.png`
+      "/>
 		</div>
 	</div>
 </template>
@@ -37,6 +40,10 @@ methods: {
     this.pokemonsFiltred = this.pokemonsList.filter(({name}) => {
       return name.includes(this.inputValue);
     });
+  },
+
+  getPokemonId(pokemon) {
+    return Number(pokemon.url.split("/")[6]);
   }
 },
 
@@ -44,8 +51,8 @@ mounted() {
 	fetch(URL)
   .then(response => response.json())
   .then(response => {
-    this.pokemonsList = response.results
-    this.pokemonsFiltred = response.results
+    this.pokemonsList = response.results;
+    this.pokemonsFiltred = response.results;
   })
 },
 
@@ -54,18 +61,21 @@ mounted() {
 
 <style lang="scss">
   .view-container {
-	  // background-color: #ededed;
 		display: flex;
 		flex-direction: column;
 		height: 100%;
+    margin: 0 8px;
 		#filter {
-			margin: 15px;
+			margin: 16px 8px 12px 8px;
 		}
 		.pokemon-card-container {
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
-			// width: 100%;
+      justify-content: center;
+			.card {
+        margin: 0 8px 16px 8px;
+      }
 		}
 	}
 </style>

@@ -1,6 +1,6 @@
 <template>
 	<div class="pokemon-card">
-		<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="">
+		<img v-bind:src="src">
 		<div class="pokemon-information">
 			<p>{{pokemon}}</p>
 			<p>#1</p>
@@ -14,7 +14,8 @@
 				name: 'PokemonCard',
 				props: {
 					pokemon: String,
-					id: Number
+					id: Number,
+					src: String
 				},
 
 				data() {
@@ -35,7 +36,6 @@
 		flex-direction: column;
 		height: 167px;
 		justify-content: space-between;
-		margin: 15px;
 		padding: 13px;
 		width: 268px;
 		img {
