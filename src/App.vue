@@ -8,6 +8,10 @@ html, body {
   padding: 0px;
 }
 
+body {
+  background-color: #ededed;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

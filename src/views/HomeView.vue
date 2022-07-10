@@ -1,8 +1,8 @@
 <template>
 	<div class="view-container">
-		<Filter :placeholder="'Search'" id="filter" @input-event="(filtreds) => searchPokemons = filtreds" />
+		<Filter :placeholder="'Search'" id="filter" @input-event="(inputValue) => filterPokemons(inputValue)" />
 		<div class="pokemon-card-container">
-			<PokemonCard v-for="pokemon of pokemons" :pokemon="pokemon.name" ref="child"/>
+			<PokemonCard v-for="pokemon of pokemonsFiltred" :pokemon="pokemon.name" />
 		</div>
 	</div>
 </template>
@@ -24,23 +24,29 @@ export default defineComponent({
 
 data() {
 	return {
-		pokemons: [],
-		searchPokemons: ''
+		pokemonsList: [],
+		inputValue: '',
+    pokemonsFiltred: []
 	}
 },
 
 methods: {
-	getInputValue() {
-		this.searchPokemons =	this.$refs.child.searchPokemons
-		console.log(this.searchPokemons)
-	}
-},
+	filterPokemons(search) {
+    this.inputValue = search.toLowerCase();
 
+    this.pokemonsFiltred = this.pokemonsList.filter(({name}) => {
+      return name.includes(this.inputValue);
+    });
+  }
+},
 
 mounted() {
 	fetch(URL)
   .then(response => response.json())
-  .then(response => this.pokemons = response.results)
+  .then(response => {
+    this.pokemonsList = response.results
+    this.pokemonsFiltred = response.results
+  })
 },
 
 });
@@ -48,7 +54,7 @@ mounted() {
 
 <style lang="scss">
   .view-container {
-	  background-color: #ededed;
+	  // background-color: #ededed;
 		display: flex;
 		flex-direction: column;
 		height: 100%;
