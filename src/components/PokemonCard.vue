@@ -9,20 +9,20 @@
 </template>
 
 <script>
-		export default {
-				name: 'PokemonCard',
-				props: {
-					pokemon: String,
-					id: Number,
-					src: String
-				},
+	export default {
+		name: 'PokemonCard',
+		props: {
+			pokemon: String,
+			id: Number,
+			src: String
+		},
 
-				data() {
-					return {
-						url: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
-					}
-				}
+	data() {
+		return {
+			url: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
 		}
+	}
+}
 </script>
 
 <style lang="scss" scoped>
